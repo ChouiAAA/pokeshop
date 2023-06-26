@@ -1,0 +1,17 @@
+.loader-container{
+  height: 80vh;
+  margin-top: 200px;
+
+  &> img{
+    animation: rotating 500ms infinite;
+  }
+}
+
+@keyframes rotating{
+0%{
+  transform: rotate(0deg);
+}
+100%{
+  transform: rotate(360deg);
+}
+}

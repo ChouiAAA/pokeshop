@@ -1,0 +1,7 @@
+.products-page__global-container{
+  margin-left: 320px;
+  min-height: 80vh ;
+  @media screen and (max-width:992px){
+    margin-left: 0px;
+  }
+}

@@ -1,0 +1,199 @@
+<div class="detail-pokemon__global-container container" *ngIf="pokemon">
+
+  <div class="row">
+
+    <div class="col-lg-4 col-12 align-self-center d-flex justify-content-center">
+      <img src="{{pokemon.image}}" alt="{{pokemon.name}}" class="pokemon__image">
+    </div>
+
+    <div class="col-lg-8 col-12">
+
+      <h1 class="pokemon__title mb-4">{{pokemon.name}}</h1>
+
+
+      <h3>Type.s :</h3>
+
+      <div class="types-and-price__container d-flex justify-content-between mb-4">
+
+        <div class="types__container d-flex">
+          <div *ngFor="let type of pokemon.apiTypes" class="me-3">
+            <img class="card__types m-2" src= {{type.image}} class="types__images">
+            <span>{{type.name}}</span>
+          </div>
+        </div>
+
+        <div class="price__container d-flex me-3">
+          <p class="price__text"> {{ pokemonPrice }}</p>
+          <img src="../../../assets/Pokedollar.webp" alt="pokedollar" class="pokedollar__image">
+        </div>
+
+      </div>
+
+      <div class="statistics__container mb-4">
+
+        <h3>Statistiques :</h3>
+
+        <div class="progress__container d-flex">
+          <div class="progress">
+            <div class="progress-bar bg-info" [ngStyle]="{width: getHpStat(pokemon)}">
+              {{ pokemon.stats.HP }} </div>
+          </div>
+          <p class="ms-3" placement="right" ngbTooltip="Points de vie max : 255">Points de vie</p>
+        </div>
+
+        <div class="progress__container d-flex">
+          <div class="progress">
+            <div class="progress-bar bg-info" [ngStyle]="{width: getAttackStat(pokemon)}">
+              {{pokemon.stats.attack}} </div>
+          </div>
+          <p class="ms-3" placement="right" ngbTooltip="Attaque max : 190">Attaque</p>
+        </div>
+
+        <div class="progress__container d-flex">
+          <div class="progress">
+            <div class="progress-bar bg-info" [ngStyle]="{width: getAttackSpecialStat(pokemon)}">
+              {{pokemon.stats.special_attack}}</div>
+          </div>
+          <p class="ms-3" placement="right" ngbTooltip="Attaque spéciale max : 194">Attaque spéciale</p>
+        </div>
+
+        <div class="progress__container d-flex">
+          <div class="progress">
+            <div class="progress-bar bg-info" [ngStyle]="{width: getDefenseStat(pokemon)}">
+              {{pokemon.stats.defense}} </div>
+          </div>
+          <p class="ms-3" placement="right" ngbTooltip="Défense max : 250">Défense</p>
+        </div>
+
+        <div class="progress__container d-flex">
+          <div class="progress">
+            <div class="progress-bar bg-info" [ngStyle]="{width: getDefenseSpecialStat(pokemon)}">
+              {{pokemon.stats.special_defense}} </div>
+          </div>
+          <p class="ms-3"  placement="right" ngbTooltip="Défense spéciale max : 250">Défense spéciale</p>
+        </div>
+
+        <div class="progress__container d-flex">
+          <div class="progress">
+            <div class="progress-bar bg-info" [ngStyle]="{width: getSpeedStat(pokemon)}">
+              {{pokemon.stats.speed}} </div>
+          </div>
+          <p class="ms-3" placement="right" ngbTooltip="Vitesse max : 200">Vitesse</p>
+        </div>
+
+
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-danger rounded-pill" (click)="addToBasket(pokemon)">AJOUTER AU PANIER</button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="details__global-container container bg-light m-5 p-5 mx-auto">
+
+    <div class="row">
+
+      <div class="col-lg-9 col-12 resistance__gobal-container mx-auto">
+        <h3>Résistances par rapport aux différents types :</h3>
+
+        <div class="resistance__container d-flex flex-wrap">
+          <div *ngFor="let resistance of pokemon.apiResistances" class="m-3 d-flex">
+
+            <img [src]="getTypeImage(resistance.name)"
+            alt="{{ resistance.name }}"
+            placement="right"
+            ngbTooltip="{{ resistance.name }}"
+            class="types__images">
+
+            <div [ngSwitch]="resistance.damage_relation">
+
+              <img *ngSwitchCase="'immune'"
+              src="../../../assets/immune.png"
+              alt="immunisé"
+              class="damage-resistance__image"
+              placement="right"
+              ngbTooltip="Immunisé">
+
+              <img *ngSwitchCase="'neutral'"
+              src="../../../assets/neutral.png"
+              alt="neutre"
+              class="damage-resistance__image"
+              placement="right"
+              ngbTooltip="Neutre">
+
+              <img *ngSwitchCase="'resistant'"
+              src="../../../assets/resistant.png"
+              alt="resitant"
+              class="damage-resistance__image"
+              placement="right"
+              ngbTooltip="Résistant">
+
+              <img *ngSwitchCase="'twice_resistant'"
+              src="../../../assets/twice_resistant.png"
+              alt="double résistance" class="damage-resistance__image"
+              placement="right"
+              ngbTooltip="Double résistance">
+
+              <img *ngSwitchCase="'vulnerable'"
+              src="../../../assets/vulnerable.png"
+              alt="vulnérable"
+              class="damage-resistance__image"
+              placement="right"
+              ngbTooltip="Vulnérable">
+
+              <img *ngSwitchCase="'twice_vulnerable'"
+              src="../../../assets/twice_vulnerable.png"
+              alt="double vulnérabilité"
+              class="damage-resistance__image"
+              placement="right"
+              ngbTooltip="Double vulnérabilité">
+
+
+              <img *ngSwitchDefault src="" alt="resitance" class="damage-resistance__image">
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="col-lg-3 col-12 evolution__gobal-container">
+        <h3>Evolution :</h3>
+
+        <div *ngIf="pokemon.apiEvolutions.length === 0">
+          <p class="lead text-center">Ce pokémon ne peut pas évoluer.</p>
+        </div>
+
+        <div *ngFor="let evolution of pokemon.apiEvolutions" >
+          <div *ngIf="evolution" class="text-center">
+            <img [src]="getEvolutionImage(evolution.name)" alt="{{evolution.name}}" class="evolution__image">
+            <p class="lead">{{evolution.name}}</p>
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+<br>
+
+  <div class="d-flex justify-content-center m-5">
+    <a type="button" class="btn btn-outline-danger rounded-pill"  routerLink="/nosproduits">Revenir à la liste</a>
+  </div>
+
+<br>
+<br>
+</div>
+
+
+<h3 *ngIf="!pokemon" class="text-center loader-containe">
+  <app-loader></app-loader>
+</h3>
+

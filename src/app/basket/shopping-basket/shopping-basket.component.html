@@ -1,0 +1,89 @@
+
+<div class="container basket__global-container my-5" *ngIf="!basketValidated">
+  <h1 class="py-5">Mon pokéPanier</h1>
+
+  <div class="basket__purchases-container">
+
+    <app-one-purchase ></app-one-purchase>
+
+
+  </div>
+
+
+
+  <div class="container-fluid add__global-container py-3 my-5" *ngIf="!pokeballsAdded">
+
+    <div class="row align-items-center">
+
+      <div class="col-md-2 col-6 add__image-container text-center">
+        <img src="../../assets/pokeball.png" alt="pokeballs" class="add__image">
+      </div>
+
+      <div class="col-md-5 col-6 add__description-container">
+        <h5 class="fw-semibold">5 pokéballs</h5>
+        <div class="add__price-container d-flex">
+          <p>125</p>
+          <img src="../../assets/Pokedollar.webp" alt="logo pokedollar" class="add__pokedollar">
+        </div>
+      </div>
+
+      <div class="col-md-5 col-12 add__button-container d-flex ">
+        <div class="mx-auto">
+          <button class="btn btn-danger rounded-pill px-3 my-4" (click)="addFivePokeballs()">AJOUTER</button>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+  <div class="container-fluid total__global-container py-3 my-5">
+    <div class="row align-items-center">
+
+      <div class="col-md-8 col-6 offset-md-2 offset-0">
+        <p class="total__price pt-3">TOTAL</p>
+      </div>
+
+      <div class="col-md-2 col-6 total__price-container mt-3">
+        <div class="d-flex justify-content-center">
+          <p class="total__price">{{totalPrice}}</p>
+          <div class="total__pokedollar-container">
+            <img src="../../assets/Pokedollar.webp" alt="logo pokedollar" class="total__pokedollar">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="container-fluid buttons__global-container py-3 my-5">
+
+    <div class="row align-items-center gx-5">
+
+      <div class="col-12 col-md-6 order-1 order-md-0 d-flex justify-content-center my-3">
+        <button type="button" class="btn btn-outline-danger rounded-pill px-5" (click)="goToPokemonsPage()">
+          CONTINUER LE SHOPPING
+        </button>
+      </div>
+
+      <div class="col-12 col-md-6 order-0 order-md-1 d-flex justify-content-center my-3">
+        <button type="button" class="btn btn-danger rounded-pill px-5" (click)="goToValidateBasket()">VALIDER LA COMMANDE</button>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+
+
+<div class="w-50 add__global-container py-3 my-5 mx-auto text-center" *ngIf="basketValidated">
+  <p class="p-5">Ce site est fictif, vous ne recevrez pas de Pokémons à votre domicile. Nous nous excusons pour ce faux espoir. N'hésitez pas à vous renseigner auprès de la SPA la plus proche de chez vous si vous êtes à la recherche d'un ami pour la vie ! Merci pour votre non-commande !</p>
+  <div class="d-flex justify-content-center my-3">
+    <button type="button" class="btn btn-outline-danger rounded-pill px-5" (click)="goToHomepage()">
+      RETOUR
+    </button>
+  </div>
+</div>

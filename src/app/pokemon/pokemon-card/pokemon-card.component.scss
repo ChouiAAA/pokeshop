@@ -1,0 +1,40 @@
+.card__container{
+  width: 300px;
+
+  &:hover{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+
+}
+
+
+.card__pokedex{
+  width: 35px;
+  height: 35px;
+}
+
+.card__types{
+  width: 40px;
+  height: 40px;
+}
+
+.card__img{
+  height: 200px;
+  width: 200px;
+}
+
+.card__price-text{
+  font-size: 2rem;
+}
+
+.card__pokedollar{
+  width: 15px;
+  height: 1.5rem;
+  margin-left: 5px;
+  margin-top: 0.9rem;
+}
+
+.card__panier{
+  width: 20px;
+  height: 20px;
+}

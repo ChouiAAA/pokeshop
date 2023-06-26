@@ -1,0 +1,86 @@
+.onepurchase{
+
+  &__container{
+    background-color: #F8F9FA;
+    &:hover{
+      background-color: #e8e8e8;
+    }
+  }
+
+  &__image{
+    width: 100px;
+    height: 100px;
+  }
+
+
+  &__quantity-input{
+    width: 70px;
+    border: none;
+  }
+
+  &__number-white-container{
+    background: white;
+    border-radius: 9999px;
+    border: 1px solid #ddd;
+  }
+
+
+  &__price {
+    font-size: 2rem;
+  }
+
+  &__pokedollar{
+    width: 15px;
+    height: 1.5rem;
+    margin-left: 5px;
+    margin-top: -0.9rem;
+  }
+
+  &__poubelle{
+    width: 30px;
+    height: 30px;
+    transform: scale(1);
+
+    &:hover{
+      transform: scale(1.05);
+    }
+  }
+
+}
+
+.add {
+
+  &__global-container{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    &:hover{
+      box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
+    }
+  }
+
+  &__image{
+    width: 100px;
+    height: 100px;
+  }
+
+  &__pokedollar{
+    width: 9px;
+    height: 0.9rem;
+    margin-top: 0.4rem;
+    margin-left: 1px;
+  }
+
+
+}
+
+
+
+.total__pokedollar{
+  width: 15px;
+  height: 1.5rem;
+  margin-left: 5px;
+  margin-top: 0.9rem;
+}
+
+.total__price {
+  font-size: 2rem;
+}

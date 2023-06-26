@@ -1,0 +1,65 @@
+<div class="d-none d-lg-block position-fixed left-sidebar bg-white mt-5" height= "100vh"
+width= "600px">
+
+  <div class="container-fluid ">
+
+    <div class="my-3">
+      <h2>Rechercher</h2>
+    </div>
+
+    <br>
+
+    <h3>Par nom :</h3>
+
+    <div class="form-group mb-5">
+      <input type="text"
+      class="form-control"
+      [(ngModel)]="searchTerm"
+      placeholder="Rechercher un pokémon">
+
+      <div *ngIf = "searchTerm && searchTerm.length > 2" class="d-flex flex-column text-secondary">
+        <div
+        class="border border-light p-2 search__results"
+        *ngFor="let pokemon of pokemonList | filter:searchTerm"
+        (click)="goToDetail(pokemon)">
+            <a> {{ pokemon.name }} </a>
+        </div>
+      </div>
+    </div>
+
+
+
+    <h3>Par type :</h3>
+
+    <div class="form-group mb-5 d-flex flex-wrap ">
+      <div class="form-check d-flex align-items-center my-2 mx-3" *ngFor="let type of typeList">
+
+        <input
+        class="form-check-input"
+        [checked]="isChecked(type.name)"
+        type="checkbox"
+        value="{{type.name}}"
+        id="{{type.name}}"
+        name="typePoké"
+        (click)="sortingByType(type.name)"
+        >
+
+        <label class="form-check-label ms-2" for="{{type.name}}">
+
+          <img src= {{type.image}}
+          alt="pokemon de type {{type.name}}"
+          class="type__image"
+          placement="right"
+          ngbTooltip="{{type.name}}"
+          >
+
+        </label>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+</div>

@@ -1,0 +1,62 @@
+.header{
+  &__left-container{
+    height: 700px;
+    background-image: url(../../assets/headerG.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    @media screen and (max-width:992px) {
+      height: 500px
+    }
+  }
+
+  &__right-container{
+    height: 700px;
+    background-image: url(../../assets/headerD.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    @media screen and (max-width:992px) {
+      height: 500px
+    }
+  }
+
+}
+.equipe__image{
+  width: 200px;
+  height: 200px;
+}
+
+.equipe__perso-container{
+  width: 300px;
+
+
+  &:hover{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+
+}
+
+.reseau__iamge{
+  width: 80px;
+  transform: scale(1);
+
+  &:hover{
+    transform: scale(1.2);
+  }
+}
+
+.valeurs__container{
+  &:hover{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+}
+
+.contact__image{
+  width: 90px;
+  transform: scale(1);
+
+  &:hover{
+    transform: scale(1.2);
+  }
+}

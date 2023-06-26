@@ -1,0 +1,39 @@
+
+
+<div class="container-fluid onepurchase__container py-3 my-5" *ngFor="let purchase of myBasket">
+
+  <div class="row align-items-center">
+
+    <div class="col-md-2 col-6 container onepurchase__image-container text-center">
+      <img [src]="purchase.image" [alt]="purchase.name" class="rounded-circle onepurchase__image">
+    </div>
+
+    <div class="col-md-4 col-6 onepurchase__name-container">
+      <h5 class="fw-semibold"  [ngClass]="{noMore: purchase.quantity === 0}">{{purchase.name}}</h5>
+    </div>
+
+    <div class="col-md-3 col-6 offset-md-0 offset-6 onepurchase__number-container d-flex justify-content-center">
+      <div class="onepurchase__number-white-container d-flex justify-content-center align-items-center">
+        <button type="button" class="btn btn-secondary rounded-circle onepurchase__number-button" (click)="onRemoveQuantity(purchase)"> - </button>
+          <p class="text-center onepurchase__quantity-input d-inline-block">{{purchase.quantity}}</p>
+        <button type="button" class="btn btn-secondary rounded-circle onepurchase__number-button" (click)="onAddQuantity(purchase)"> + </button>
+      </div>
+    </div>
+
+
+    <div class="col-md-2 col-6 offset-md-0 offset-6 onepurchase__price-container mt-3">
+      <div class="d-flex align-items-center justify-content-center">
+        <p class="onepurchase__price">{{purchase.totalPrice}}</p>
+        <div class="onepurchase__pokedollar-container">
+          <img src="../../assets/Pokedollar.webp" alt="logo pokedollar" class="onepurchase__pokedollar">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-1 col-12  text-md-center text-end onepurchase__name-container">
+      <img src="../../assets/poubelle.png" alt="poubelle" class="onepurchase__poubelle" (click)="deletePurchase(purchase)">
+    </div>
+
+
+  </div>
+</div>

@@ -1,0 +1,96 @@
+
+
+ngb-carousel{
+  width: 300px;
+}
+
+.pokemon-selection__container{
+  width: 350px !important;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.slider__container{
+  transform: scale(1);
+
+    &:hover{
+      transform: scale(1.05);
+    }
+
+}
+
+.slider__image{
+  width: 200px;
+}
+
+
+.carousel-item
+{
+  display:block;
+  opacity:0;
+  transition: opacity 2s;
+}
+.carousel-item.active
+{
+  display:block;
+  opacity:1;
+  transition: opacity 2s;
+
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+  background-color: #333;
+  border-radius: 50%;
+  padding: 10px;
+  border: 10px solid #333;
+  margin: 5px;
+}
+
+
+.test-flex{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  transform: scale(1);
+
+    &:hover{
+      transform: scale(1.2);
+    }
+
+}
+
+
+.avantage{
+  &__container{
+    width: 200px;
+    height: 200px;
+    transform: scale(1);
+
+    &:hover{
+      transform: scale(1.2);
+    }
+  }
+
+
+  &__circle{
+    width: 100px;
+    height: 100px;
+  }
+
+  &__image{
+    width: 50px;
+  }
+}
+
+.header__image
+{
+  width: 100%;
+}
+
+.header__container{
+  margin-top: 40px;
+}
+h4{
+  color:black
+}

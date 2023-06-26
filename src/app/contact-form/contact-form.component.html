@@ -1,0 +1,125 @@
+
+<br>
+<div class="contact__global-container">
+
+
+  <div class="container contact__global-container mb-0" *ngIf="!submitted">
+
+    <div class="container p-3 contact__container">
+      <h1>Nous contacter</h1>
+
+      <form
+        (ngSubmit)="onSubmit($event)"
+        #contactForm="ngForm">
+
+        <div class="row">
+
+          <div class="form-group col-md-6 col-12">
+
+            <label for="name" class="form-label ps-1 pt-3">Votre nom :</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              ngModel
+              #name="ngModel"
+              class="form-control"
+              placeholder="Votre nom"
+              required
+              pattern="^[a-zA-Z9àéèç]{1,25}$">
+
+            <div [hidden]="name.valid || name.pristine" lass="text-danger">
+              Votre nom ne doit contenir que des lettres.
+            </div>
+
+          </div>
+
+          <div class="form-group col-md-6 col-12">
+
+            <label for="lastname" class="form-label ps-1 pt-3">Votre prénom :</label>
+            <input
+              type="text"
+              id="lastname"
+              name="lastname"
+              ngModel
+              #lastname="ngModel"
+              class="form-control"
+              placeholder="Votre prénom"
+              required
+              pattern="^[a-zA-Z9àéèç]{1,25}$">
+
+            <div [hidden]="lastname.valid || lastname.pristine" lass="text-danger">
+              Votre nom ne doit contenir que des lettres.
+            </div>
+
+          </div>
+
+          <div class="form-group">
+
+            <label for="email" class="form-label ps-1 pt-3">Votre email :</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              ngModel
+              #email="ngModel"
+              class="form-control"
+              placeholder="Votre email"
+              required
+              pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+.[a-zA-Z.]{2,15}">
+
+            <div [hidden]="email.valid || email.pristine" lass="text-danger">
+              Votre eamil n'est pas conforme
+            </div>
+
+          </div>
+
+          <div class="form-group">
+
+            <label for="message" class="form-label ps-1 pt-3">Votre message :</label>
+            <textarea
+              name="message"
+              id="message"
+              cols="30"
+              rows="8"
+              ngModel
+              #message="ngModel"
+              class="form-control"
+              placeholder="Votre message"
+              required>
+            </textarea>
+
+            <div [hidden]="message.valid || message.pristine" lass="text-danger">
+              Votre message est requis.
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+
+
+
+        <div class="d-flex justify-content-center mt-5 mb-3" >
+          <button class="btn btn-danger rounded-pill px-3"  [disabled]="!contactForm.valid" >ENVOYER</button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+
+    <div class="d-flex justify-content-center my-5 w-50 mx-auto validation-message__container" *ngIf="submitted">
+      <p class="p-3 pb-3">Votre message aurait pu nous être transmis si nous étions une vraie entreprise... malheureusement nous devons vous révéler la vérité : les pokémons n'existent pas IRL !</p>
+    </div>
+
+
+    <br>
+
+    <div class="d-flex justify-content-center test">
+      <a type="button" class="btn btn-outline-danger rounded-pill"  routerLink="/accueil">Retour à l'accueil</a>
+    </div>
+
+</div>

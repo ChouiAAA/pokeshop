@@ -1,0 +1,33 @@
+.form-label{
+  font-size: 1.5rem;
+}
+
+.contact__container, .validation-message__container{
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin-top: 100px;
+}
+
+.validation-message__container{
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin-top: 200px;
+  height: 20vh;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.ng-valid[required]{
+  border-left : 5px solid darkseagreen
+}
+
+
+.ng-invalid:not(form):not(:placeholder-shown){
+  border-left: 5px solid salmon
+}
+
+.contact__global-container{
+  margin: 100px auto;
+}
+
+.contact__global-container{
+  min-height: 100vh;
+}

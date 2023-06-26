@@ -1,0 +1,34 @@
+
+<div class="card card__container my-3"
+*ngIf="pokemon">
+    <div class="d-flex">
+        <div class="card__pokedex ms-auto bg-secondary rounded-circle d-flex justify-content-center align-items-center mt-2 me-2">
+            <span class=" text-white fw-bold">{{ pokemon.pokedexId }}</span>
+        </div>
+    </div>
+    <img class="card__img card-img-top d-block mx-auto" src={{pokemon.image}}>
+    <div class="card-body text-center">
+          <h4 class="card-title p-1">{{ pokemon.name }}</h4>
+        <div class="card-text d-flex justify-content-around mb-2">
+          <div class="card__types-container d-flex justify-content-center">
+            <div *ngFor="let type of pokemon?.apiTypes">
+              <img class="card__types m-2" src= {{type.image}} >
+            </div>
+          </div>
+          <div class="card__price-container d-flex">
+            <p class="card__price-text">{{ pokemonPrice }}</p>
+            <img src="../../../assets/Pokedollar.webp" alt="pokedollar" class="card__pokedollar">
+          </div>
+
+        </div>
+        <div class="d-flex justify-content-around">
+          <a class="btn btn-primary rounded-pill py-2" (click)="goToPokemon(pokemon)">En savoir +</a>
+          <a class="btn btn-primary rounded-pill py-2" (click)="addToBasket(pokemon)">
+            <img src="./assets/caddie.png" alt="ajouter au panier" class="card__panier">
+          </a>
+        </div>
+
+    </div>
+</div>
+
+

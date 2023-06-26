@@ -1,0 +1,169 @@
+
+
+
+<div class="homepage__global-container">
+
+
+  <!-- HEADER --------------------------------------------------------------------------------------->
+  <div class=" text-center header__container">
+    <img class="img-fluid " src="../../../assets/JauneVSBleu.png" class="header__image"/>
+  </div>
+
+ <!-- SELECTION--------------------------------------------------------------------------------------->
+
+
+ <br>
+
+ <div class="mx-auto m-5 p-5 d-flex flex-wrap">
+
+  <div class="container border rounded p-4 m-5 mx-auto pokemon-selection__container" *ngIf="tankiestPokemonsList">
+    <h2 class="pb-4">Pokémons les plus costauds</h2>
+    <ngb-carousel>
+
+     <ng-template ngbSlide *ngFor=" let pokemon of tankiestPokemonsList" class="bg-warning">
+
+        <div class="wrapper d-flex flex-column justify-content-center align-items-center slider__container" (click)="goToPokemon(pokemon)">
+
+          <img [src]="pokemon.image" alt="Random first slide" class="slider__image">
+          <h4 class="text-center">{{ pokemon.name }}</h4>
+
+        </div>
+
+      </ng-template>
+    </ngb-carousel>
+  </div>
+
+  <div class="container border rounded p-4 m-5 mx-auto pokemon-selection__container" *ngIf="strongestPokemonsList">
+    <h2 class="pb-4">Pokémons les plus forts</h2>
+    <ngb-carousel>
+
+     <ng-template ngbSlide *ngFor=" let pokemon of strongestPokemonsList" class="bg-warning">
+
+        <div class="wrapper d-flex flex-column justify-content-center align-items-center slider__container" (click)="goToPokemon(pokemon)">
+
+          <img [src]="pokemon.image" alt="Random first slide" class="slider__image">
+          <h4 class="text-center">{{ pokemon.name }}</h4>
+
+        </div>
+
+      </ng-template>
+    </ngb-carousel>
+  </div>
+
+  <div class="container border rounded p-4 m-5 mx-auto pokemon-selection__container" *ngIf="weakestPokemonsList">
+    <h2 class="pb-4">Pokémons les plus faibles</h2>
+    <ngb-carousel>
+
+     <ng-template ngbSlide *ngFor=" let pokemon of weakestPokemonsList" class="bg-warning">
+
+        <div class="wrapper d-flex flex-column justify-content-center align-items-center slider__container" (click)="goToPokemon(pokemon)">
+
+          <img [src]="pokemon.image" alt="Random first slide" class="slider__image">
+          <h4 class="text-center">{{ pokemon.name }}</h4>
+
+        </div>
+
+      </ng-template>
+    </ngb-carousel>
+  </div>
+
+ </div>
+
+
+  <!-- AVANTAGE --------------------------------------------------------------------------------------->
+
+<br>
+  <div class="container-fluid bg-light my-5 pt-5 pb-4">
+
+    <div class="d-flex justify-content-around w-75 mx-auto flex-wrap">
+
+      <div class=" mx-4 d-flex flex-column align-items-center avantage__container">
+        <div class="bg-white rounded-circle mb-3 avantage__circle d-flex justify-content-center">
+          <img src="../../../assets/achatFacile.svg" alt="achat facile" class="avantage__image">
+        </div>
+        <p>Achat en ligne facile</p>
+      </div>
+
+      <div class=" mx-4 d-flex flex-column align-items-center avantage__container">
+        <div class="bg-white rounded-circle mb-3 avantage__circle d-flex justify-content-center">
+          <img src="../../../assets/LivraisonRapide.svg" alt="achat facile" class="avantage__image">
+        </div>
+        <p>Livraison rapide</p>
+      </div>
+
+        <div class=" mx-4 d-flex flex-column align-items-center avantage__container">
+          <div class="bg-white rounded-circle mb-3 avantage__circle d-flex justify-content-center">
+            <img src="../../../assets/BienetreAnimal.svg" alt="achat facile" class="avantage__image">
+          </div>
+          <p>Bien-être animal</p>
+        </div>
+
+        <div class=" mx-4 d-flex flex-column align-items-center avantage__container">
+          <div class="bg-white rounded-circle mb-3 avantage__circle d-flex justify-content-center">
+            <img src="../../../assets/SastifactionClient.svg" alt="achat facile" class="avantage__image">
+          </div>
+          <p>Satisfaction clients</p>
+        </div>
+
+        <div class=" mx-4 d-flex flex-column align-items-center avantage__container">
+          <div class="bg-white rounded-circle mb-3 avantage__circle d-flex justify-content-center">
+            <img src="../../../assets/SiteSecurise.svg" alt="achat facile" class="avantage__image">
+          </div>
+          <p>Site sécurisé</p>
+        </div>
+
+    </div>
+  </div>
+
+ <!-- LAST CONTAINER  --------------------------------------------------------------------------------------->
+
+ <br>
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-lg-4 col-12">
+        <img src="../../../assets/imageHomepage.png" alt="" class="img-fluid d-block mx-auto">
+      </div>
+      <div class="col-lg-8 col-12">
+        <h3 class="text-center py-2">Lorem, ipsum dolor.</h3>
+        <p class="text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur maxime et quibusdam saepe modi exercitationem minus amet, magni optio inventore eligendi aliquam est officia illum, ullam ab quo porro dignissimos earum nesciunt doloremque reprehenderit! Tempora hic ratione illo, voluptatibus veniam vero unde porro totam quis sint incidunt, eos ab mollitia.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+<br>
+
+
+
+<script>
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

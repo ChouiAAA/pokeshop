@@ -1,0 +1,54 @@
+
+<div class="tri__container container p-5 mt-5">
+  <div class="row align-items-center">
+
+    <div class="col-md-3 col-12">
+      <p>Trier les pokémons par :</p>
+    </div>
+
+    <div class="col-md-9 col-12 text-secondary p-2 mb-4 d-flex justify-content-around align-items-center">
+
+      <button class="btn btn-light" (click)="goToPokemonListById(pokemonList)">Ordre de Pokedex</button>
+      <button class="btn btn-light" (click)="goToPokemonListAphabetically(pokemonList)">De A à Z</button>
+      <button class="btn btn-light" (click)="goToPokemonListUnaphabetically(pokemonList)">De Z à A</button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="container d-flex justify-content-around flex-wrap">
+
+    <div *ngFor="let pokemon of pagedResults" >
+     <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
+    </div>
+
+
+
+</div>
+<div class="d-flex justify-content-center m-5">
+  <nav aria-label="Pagination" *ngIf="pagedResults.length > 1" >
+    <ul class="pagination">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <button class="page-link" (click)="goToPage(1)">1</button>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <button class="page-link" (click)="goToPage(currentPage - 1)">Page précédente</button>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === totalPages">
+        <button class="page-link" (click)="goToPage(currentPage + 1)">Page suivante</button>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === totalPages">
+        <button class="page-link" (click)="goToPage(totalPages)">{{totalPages}}</button>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+
+<h3 *ngIf="pagedResults.length < 1" class="text-center">
+ <app-loader></app-loader>
+</h3>
+
